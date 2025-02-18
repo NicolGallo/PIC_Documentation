@@ -12,57 +12,11 @@ What does your implementation do?
 
 How does your implementation work?
 
-Los siguientes apartados detallan en medida lo efectuado en cada paso para cumplir los requisitos establecidos en el 
-Lab Module 02:
-
-PIOT-CDA-02-000 -> Creada la nueva rama denominada labmodule02.
-
-PIOT-CDA-02-001 -> Para crear el nuevo módulo ConstrainedDeviceApp se ha mantenido la arquitectura proporcionada por el 
-código fuente. El test unitario 'ConfigUtilTest' y el test de integración 'ConstrainedDeviceAppTest pasan correctamente.
-
-PIOT-CDA-02-002 -> Para crear el nuevo módulo SystemPerformanceManager se ha aprovechado la arquitectura ya 
-proporcionada y se ha implementado el constructor de la clase así como la implementación de los métodos startManager y 
-stopManager para visualizar los prints de información. El test de integración 'SystemPerformanceManagerTest' 
-pasa correctamente.
-
-PIOT-CDA-02-003 -> Dentro del CDA, se implementa una instancia del SystemPerformanceManager para conectar ambos módulos 
-de la arquitectura y se ha editado los métodos de startApp y stopApp con la información de los logs correspondientes 
-para visualizar el momento en que el CDA arranca y finaliza, así como el arranque y la finalización del 
-SystemPerformanceManager. El test de integración 'ConstrainedDeviceAppTest' pasa correctamente generando el 
-output esperado.
-
-PIOT-CDA-02-004 -> Se ha añadido dos parámetros al constructor de la clase BaseSystemUtilTask, así como dos métodos get 
-para cada parámetro establecido (name y typeID). Por otro lado, el método 'getTelemetryValue' se ha dejado tal y como 
-ha sido proporcionado en el código fuente debido a que se implementará en fases posteriores. También, ningún test 
-ha sido requerido ejecutar para esta clase.
-
-PIOT-CDA-02-005 -> Se ha implementado la clase SystemCpuUtilTask, la cual nos permitirá recolectar métricas 
-correspondientes al uso de CPU del sistema local. Para ello, se ha definido el método 'getTelemetryValue' 
-que en el anterior paso se dejo sin implementar. El test unitario ejecutado para comprobar el correcto funcionamiento 
-ha sido el "SystemCpuUtilTaskTest", el cual pasa indicando el porcentaje de CPU que se ha utilizado.
-
-PIOT-CDA-02-006 -> Se ha implementado la clase SystemMemUtilTask, la cual nos permitirá recolectar métricas 
-correspondientes al uso de la memoria del sistema local. Para ello, se ha definido el método 'getTelemetryValue' para 
-que devuelva el porcentaje de memoria virtual. El test unitario ejecutado para comprobar el correcto funcionamiento 
-ha sido el "SystemMemUtilTaskTest", el cual pasa correctamente.
-
-PIOT-CDA-02-007 -> Se ha conectado tanto el task asociado a la CPU y la memoria al SystemPerformanceManager. A su vez, 
-se ha utilizado en la implementación de dicha clase la librería 'apscheduler', que permite ejecutar las dos tasks 
-implementadas en PIOT-CDA-02-005 y PIOT-CDA-02-006 en intervalos regulares de tiempo. El SystemPerformanceManager 
-permite también poder arrancar y finalizar el monitoreo de las tareas que estarán recolectando los datos o métricas 
-pertinentes. El test de integración 'SystemPerformanceManagerTest' ejecutado pasa correctamente generando un output 
-donde se visualiza los diferentes jobs (o trabajos) en diferentes intervalos de tiempo de las medidas de las métricas 
-de CPU y memoria utilizada por el sistema local.
-
-PIOT-CDA-02-100 -> Se ha realizado el merge a la rama master o principal lo implementado en la rama labmodule2. 
-Por otro lado, se ha comprobado que todos los tests de integración y unitarios de la part01 se ejecutan y pasan 
-correctamente.
-
 ### Code Repository and Branch
 
 NOTE: Be sure to include the branch.
 
-URL: https://github.com/NicolGallo/PIC_Python_Components/tree/labmodule02
+URL: 
 
 ### Unit Tests Executed
 
@@ -70,9 +24,9 @@ NOTE: The instructor will execute your unit tests. You only need to list each te
 (e.g. ConfigUtilTest, DataUtilTest, etc). Be sure to include all previous tests, too,
 since you need to ensure you haven't introduced regressions.
 
-- ConfigUtilTest
-- SystemCpuUtilTaskTest
-- SystemMemUtilTaskTest
+- 
+- 
+- 
 
 ### Integration Tests Executed
 
@@ -81,8 +35,8 @@ some exceptions (such as your cloud connectivity tests). In such cases, they'll 
 your code to ensure it's correct. As for the tests you execute, you only need to list each
 test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
 
-- ConstrainedDeviceAppTest
-- SystemPerformanceManagerTest
+- 
+- 
 - 
 
 EOF.
