@@ -12,11 +12,76 @@ What does your implementation do?
 
 How does your implementation work?
 
+A continuación, se detalla el procedimiento seguido para implementar los requisitos establecidos en el Lab Module 03:
+
+PIOT-CDA-03-000 -> Creada una nueva rama denominada labmodule03 para proceder a implementar los requisitos necesarios 
+de esta sección.
+
+PIOT-CDA-03-001 -> Se ha editado el módulo ActuatorData (el cual funciona como un actuador de datos resultando útil su 
+función para enviar mensajes de texto al display de un dispositivo). Primero, se ha modificado el constructor de la 
+clase añadiendo 3 variables (value, command y stateData). Los getters y setters también han sido implementados para 
+cada variable así como el método privado "_handleUpdateData" (el cual es un método abstracto definido en la clase 
+BaseIotData) que contendrá la instancia de ActuatorData que definirá los datos de value, command y stateData. 
+Por último, se ha implementado el método __str__(self) para ofrecer una mejor representación de los 
+parámetros de ActuatorData.
+
+Seguidamente, se ha editado el módulo SensorData, el cual tambien hereda de BaseIotData y actúa como un simple sensor o 
+recopilador de datos. En dicho módulo también se ha editado el constructor de la clase añadiendo la variable "value" 
+así como su método get y set, la implementación del método "_handleUpdateData" y del método __str__(self) para ofrecer 
+una representación detallada del sensorData.
+
+Posteriormente, se ha efectuado el mismo procedimiento en el módulo SystemPerformanceData editando el constructor con 
+las de cpuUtil, memUtil y diskUtil, para evaluar la cantidad de CPU, memoria y disco utilizado. Se han implementado los 
+getters y setters correspondientes, el método "_handleUpdateData"y el método __str__(self).
+
+Por último, se han ejecutado los tests unitarios "ActuatorDataTest", "SensorDataTest" y "SystemPerformanceDataTest", 
+los cuales todos pasan correctamente imprimiendo los datos establecidos en el método __str__ de la clase BaseIotData y 
+de las subclases anteriores.
+
+PIOT-CDA-03-002 -> Se ha editado el módulo BaseSensorSimTask, añadiendo al constructor de la clase las variables 
+dataSet, name, typeID, dataSetIndex y useRandomizer. A continuación, se ha implementado los métodos getName y getTypeID.
+Por otro lado, se ha implementado el método generateTelemetry y getTelemetry, con los cuales se podrá obtener el 
+valor actual del sensorData. No se ha ejecutado ningún test en esta sección.
+
+PIOT-CDA-03-003 -> Se ha editado los módulos HumiditySensorSimTAsk, PressureSensorSimTAsk y TemperatureSensorSimTAsk 
+(en que todos heredan de BaseSensorSimTask). En todos los módulos, se ha implementado el constructor correspondiente 
+para cada clase añadiendo las variables name, typeID, dataSet, minVAl y maxVal.
+También, se han ejecutado los tests unitarios "HumiditySensorSimTaskTest", "PressureSensorSimTaskTest" y 
+"TemperatureSensorSimTaskTest". Estos se ejecutan correctamente ofreciendo en cada output los parámetros propios de 
+cada tipo de sensor así el valor de medición dado para probar el test.
+
+PIOT-CDA-03-004 -> Se ha editado el módulo BaseActuatorSimTask, añadiendo en primera instancia, las variables name, 
+typeID, simpleName (utilizado solamente para realiazar el logging), lastknownCommand (utilizado para almacenar el 
+último comando ejecutado) y lastKnownVAlue (utilizado para almacenar el último valor aplicado).
+Seguidamente, se ha implementado el método privado "_ActivateActuator" y "_deactivateActuator" para proporcionar un 
+log informativo acerca de la puesta en ON y OFF del actuador, respectivamente.
+Por último, se ha implementado el método "updateActuator", el cual procesa los comandos para el actuador devolviendo 
+una respuesta con su estado actualizado. Si el comando resulta ser ON u OFF (un comando válido), procederá a activar 
+o desactivar el actuador. Si el comando resulta ser inválido, se registrará el error asignando el código de error por 
+defecto. En una última instancia, se crea un objeto de tipo ActuadorData, copiando los datos originales y actualizando 
+el estado (permitiendo a la aplicación gestionar el actuador y confirmar así la ejecución del comando).
+
+En esta sección, no se ha ejecutado ningún tipo de test.
+
+PIOT-CDA-03-005 -> Se han editado los módulos "HumidifierActuatorSimTask" y "HvacActuatorSimTask", en que ambos heredan
+de la clase BaseActuatorSimTAsk. En ambos módulos, se ha implementado el constructor de las respectivas clases, 
+añadiendo las variables name, typeID y simpleName.
+
+En esta sección, se han ejecutado los tests unitarios "HumidifierActuatorSimTaskTest" y "HvacActuatorSimTaskTest", 
+pasando correctamente obteniendo en la consola los valores de los actuadores, los parámetros característicos detallados
+de estos y la visualización de ON u OFF en caso de si se activa o se desactiva el actuador.
+
+PIOT-CDA-03-006 -> 
+PIOT-CDA-03-007 -> 
+PIOT-CDA-03-008 -> 
+PIOT-CDA-03-009 -> 
+PIOT-CDA-03-100 -> 
+
 ### Code Repository and Branch
 
 NOTE: Be sure to include the branch.
 
-URL: 
+URL: https://github.com/NicolGallo/PIC_Python_Components/tree/labmodule03
 
 ### Unit Tests Executed
 
@@ -24,9 +89,14 @@ NOTE: The instructor will execute your unit tests. You only need to list each te
 (e.g. ConfigUtilTest, DataUtilTest, etc). Be sure to include all previous tests, too,
 since you need to ensure you haven't introduced regressions.
 
-- 
-- 
-- 
+- ActuatorDataTest
+- SensorDataTest
+- SystemPerformanceDataTest
+- HumiditySensorSimTaskTest
+- PressureSensorSimTaskTest
+- TemperatureSensorSimTaskTest
+- HumidifierActuatorSimTaskTest
+- HvacActuatorSimTaskTest
 
 ### Integration Tests Executed
 
