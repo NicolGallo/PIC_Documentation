@@ -71,9 +71,54 @@ En esta sección, se han ejecutado los tests unitarios "HumidifierActuatorSimTas
 pasando correctamente obteniendo en la consola los valores de los actuadores, los parámetros característicos detallados
 de estos y la visualización de ON u OFF en caso de si se activa o se desactiva el actuador.
 
-PIOT-CDA-03-006 -> 
-PIOT-CDA-03-007 -> 
-PIOT-CDA-03-008 -> 
+PIOT-CDA-03-006 -> Se ha editado el módulo "SensorAdapterManager, la cual está enfocada en la gestión de simuladores 
+(o con los emuladores que se implementarán más adelante). Para ello, se ha implementado un constructor con las 
+variables useEmulator, pollRate y locationID para poder recuperar ciertas propiedades del archivo de configuración del 
+sistema. En adición, se han implementado los métodos "setDataMessageListener", "startManager" y "stopManager", para 
+poder mostrar diferentes logs informativos acerca del estado del SensorAdapterManager.
+Por otro lado, se ha implementado el método "handleTelemetry", el cual se ejecutará según la frecuencia de muestreo 
+establecido (pollRate). En cada una de las tareas de los sensores se generan datos de telemetría, se asigna el ID de 
+ubicación a cada instancia de SensorData generada y luego se pasa la referencia al escuchador de mensajes (listener) de
+datos para su procesamiento.
+
+Por último, se ha implementado un nuevo método "_initEnvironmentalSensorTasks", con el cual se procede a crear la tarea 
+del simulador de los sensores.
+
+En esta sección, se ha ejecutado todos los tests unitarios de la part02 en que todos pasan correctamente imprimiendo 
+por consola todos los datos pertinentes a los sensores implementados en pasos anteriores (se ejecutan todos 
+correctamente menos el test "DataUtilTest" que será implementado en etapas posteriores) y el test de integración 
+"SensorAdapterManagerTest", en que se ejecuta correctamente observando datos generados por los sensores simulados en 
+sus diferentes jobs.
+
+PIOT-CDA-03-007 -> Se ha editado el módulo "ActuatorAdapterManager", el cual es muy similar al anterior pero se 
+implementan propiedades características de actuadores en vez de sensores. Se ha implementado el constructor de la clase
+así como los métodos "sendActuatorCommand" (encargado de activar acciones validando el valor de la respuesta del 
+actuador y que locationID sea igual a la configurada en la aplicación. En caso de fallar la validación o chequeo, no 
+se ejecutará la acción indicándose mediante un log informativo), "setDataMessageListener" y 
+"_initEnvironmentalActuationTasks" (encargado de cargar el entorno de las tareas de un actuador simulado y de crear 
+el actuador HVAC).
+
+En esta sección, se han ejecutado todos los tests unitarios como en la sección anterior (PIOT-CDA-03-006) menos el test 
+"DataUtilTest"  y el test de integración "ActuatorAdapterManagerTest", ejecutándose todos correctamente pudiendo 
+observar por consola los valores de los actuadores así como diferentes logs informativos de los mismos.
+
+PIOT-CDA-03-008 -> Se ha editado el módulo "DeviceDataManager", el cual corresponde al núcleo del CDA elaborado, 
+procesando los datos en la aplicación y dirigiendo todas las solicitudes al destino apropiado. Primero, se han editado 
+diferentes propiedades y constantes en la configuración del CDA en los módulos "PiotConfig" y "ConfigConst".
+
+A continuación, se ha procedido a editar la clase DeviceDataManager añadiendo nuevas instancias del 
+SystemPerformanceManager, del SensorAdapterManager y del ActuatorAdapterManager, así como la recuperación de las 
+diferentes flags de habilitación de actuación editadas anteriormente en la configuración del CDA.
+
+Por otro lado, se han implementado los métodos "startManager" y "stopManager" para arrancar y parar el 
+SystemPerformanceManager y el SensorAdapterManager con logs informativos correspondientes de cada uno. También, se ha 
+implementado la lógica de los diferentes métodos públicos ("handleActuatorCommandMessage", 
+"handleActuatorCommandResponse", "handleIncomingMessage", "handleSensorMessage" y "handleSystemPerformanceMessage") de 
+la clase que serán utilizados más adelante como callback methods (métodos de devolución de llamada).
+
+En esta sección, se ha ejecutado el test de integración "DeviceDataManagerNoCommsTest" pasando correctamente y 
+obteniendo información acerca de todos los sensores y actuadores del sistema.
+
 PIOT-CDA-03-009 -> 
 PIOT-CDA-03-100 -> 
 
