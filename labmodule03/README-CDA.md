@@ -119,8 +119,17 @@ la clase que serán utilizados más adelante como callback methods (métodos de 
 En esta sección, se ha ejecutado el test de integración "DeviceDataManagerNoCommsTest" pasando correctamente y 
 obteniendo información acerca de todos los sensores y actuadores del sistema.
 
-PIOT-CDA-03-009 -> 
-PIOT-CDA-03-100 -> 
+PIOT-CDA-03-009 -> Se ha editado el módulo "ConstrainedDeviceApp" añadiendo al constructor de la clase una instancia 
+del DeviceDataManager y, posteriormente, modificando los métodos startApp y stopApp para llamar a los métodos propios 
+del DeviceDataManager como "startManager" y "stopManager".
+
+En esta sección, se ha ejecutado el test de integración "ConstrainedDeviceAppTest", pasando correctamente y pudiendo 
+observar los diferentes logs informativos como cuando comienza y termina el CDA, lo mismo con el DeviceDataManager, el 
+SystemPerformanceManage, el SensorAdapterManager, también se observa en el momento que el scheduler o planificador esta 
+en búsqueda de correr nuevos jobs o trabajos y cuando no detecta mas jobs se detiene el CDA.
+
+PIOT-CDA-03-100 -> Se ha llevado a cabo el merge de la rama labmodule03 a la rama main o default para comenzar la
+siguiente sección Lab Module 04.
 
 ### Code Repository and Branch
 
@@ -150,8 +159,6 @@ some exceptions (such as your cloud connectivity tests). In such cases, they'll 
 your code to ensure it's correct. As for the tests you execute, you only need to list each
 test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
 
-- 
-- 
-- 
+- ConstrainedDeviceAppTest
 
 EOF.
