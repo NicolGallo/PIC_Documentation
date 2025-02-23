@@ -85,7 +85,15 @@ observar los datos generados y el mensaje de cada sensor (humedad, temperatura y
 cambiar algún valor desde la GUI del emulador, se observa dicho cambio en el output por terminal, mostrando la buena 
 conexión entre el emulador y las tareas de los sensores.
 
-PIOT-CDA-04-004 -> 
+PIOT-CDA-04-004 -> Se ha editado el módulo "ActuatorAdapterManager para añadir la funcionalidad del emulador. El 
+procedimiento es muy similar a la issue anterior pero, en este caso, se modifica la implementación del método 
+"_initEnvironmentalActuationTasks" efectuada en la issue PIOT-CDA-03-007. Para ello, al método se le adiciona un else 
+donde si el useEmulator es True se cargarán dinámicamente las tareas del emulador.
+
+En esta sección, se ha ejecutado el test de integración "ActuatorEmulatorManagerTest", visualizando un output similar 
+al proporcionado en las notas del Notion (en el output se observa como se activa el actuador y se actualizan los 
+valores de los actuadores humidificador, HVAC y el display LED y como se desactiva el actuador correspondiente.
+
 PIOT-CDA-04-005 -> 
 PIOT-CDA-04-100 -> 
 
@@ -121,5 +129,6 @@ test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
 - HvacEmulatorTaskTest
 - LedDisplayEmulatorTaskTest
 - SensorEmulatorManagerTest
+- ActuatorEmulatorManagerTest
 
 EOF.
