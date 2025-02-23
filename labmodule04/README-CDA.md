@@ -62,7 +62,17 @@ En esta seccion, se han ejecutado los tests de integración "HumidityEmulatorTas
 el sensor, el nombre y ID del sensor, entre otros parámetros. Si se cambian valores del respectivo sensor en la GUI del 
 Sense HAT mientras se ejecutan los tests se puede observar como el valor mostrado corresponde al establecido.
 
-PIOT-CDA-04-002 -> 
+PIOT-CDA-04-002 -> Se han editado los módulos "HumidifierEmulatorTask", "HvacEmulatorTask" y "LedDisplayEmulatorTask", 
+los cuales heredan de la clase BaseActuatorSimTask. En ellos, se ha procedido a implementar el constructor de la clase 
+añadiendo el name y el typeID de la tarea emulada del actuador así como la definición de los métodos abstractos 
+"_activateActuator" y "_deactivateActuator".
+
+En esta sección, se han ejecutado los tests de integración "HumidifierEmulatorTaskTest", "HvacEmulatorTaskTest" y 
+"LedDisplayEmulatorTaskTest", pasando todos ellos correctamente proporcionando información acerca de cuando se activa 
+el actuador, el ID del actuador, el valor ofrecido, entre otros parámetros (el output es muy similar al proporcionado 
+en las notas del Notion). También, en el momento que se activa el actuador correspondiente, en la pantalla del emulador
+Sense HAT se visualiza que el tipo de actuador esta en modo ON y el valor aplicado.
+
 PIOT-CDA-04-003 -> 
 PIOT-CDA-04-004 -> 
 PIOT-CDA-04-005 -> 
@@ -96,5 +106,8 @@ test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
 - HumidityEmulatorTaskTest
 - PressureEmulatorTaskTest
 - TemperatureEmulatorTaskTest
+- HumidifierEmulatorTaskTest
+- HvacEmulatorTaskTest
+- LedDisplayEmulatorTaskTest
 
 EOF.
