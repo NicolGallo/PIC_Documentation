@@ -49,6 +49,25 @@ Notion.
 
 PIOT-CDA-04-000 -> Se ha procedido a crear una nueva rama denominada labmodule04.
 
+PIOT-CDA-04-001 -> Primeramente, se ha modificado el archivo de configuración cambiando a True los parámetros 
+"enableEmulator" y "enableSenseHat" para poder operar el Sense Hat en modo emulador.
+
+Seguidamente, se ha editado el módulo "HumiditySensorEmulatorTask", modificando el constructor de la clase añadiendo 
+el name y el typeID del emulador de la tarea del sensor de humedad en cuestión y definiendo el método abstracto 
+"generateTelemetry" implementado previamente en la clase BaseSensorSimTask. Este procedimiento se sigue de la misma 
+forma para los módulos "TemperatureSensorEmulatorTask" y "PressureSensorEmulatorTask".
+
+En esta seccion, se han ejecutado los tests de integración "HumidityEmulatorTaskTest", "PressureEmulatorTaskTest" y 
+"TemperatureEmulatorTaskTest", pasando todos ellos correctamente proporcionando información acerca del dato tomado por
+el sensor, el nombre y ID del sensor, entre otros parámetros. Si se cambian valores del respectivo sensor en la GUI del 
+Sense HAT mientras se ejecutan los tests se puede observar como el valor mostrado corresponde al establecido.
+
+PIOT-CDA-04-002 -> 
+PIOT-CDA-04-003 -> 
+PIOT-CDA-04-004 -> 
+PIOT-CDA-04-005 -> 
+PIOT-CDA-04-100 -> 
+
 ### Code Repository and Branch
 
 NOTE: Be sure to include the branch.
@@ -74,7 +93,8 @@ your code to ensure it's correct. As for the tests you execute, you only need to
 test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
 
 - SenseHatEmulatorQuickTest
-- 
-- 
+- HumidityEmulatorTaskTest
+- PressureEmulatorTaskTest
+- TemperatureEmulatorTaskTest
 
 EOF.
