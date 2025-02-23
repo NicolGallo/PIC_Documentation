@@ -73,7 +73,18 @@ el actuador, el ID del actuador, el valor ofrecido, entre otros parámetros (el 
 en las notas del Notion). También, en el momento que se activa el actuador correspondiente, en la pantalla del emulador
 Sense HAT se visualiza que el tipo de actuador esta en modo ON y el valor aplicado.
 
-PIOT-CDA-04-003 -> 
+PIOT-CDA-04-003 -> Se ha editado el módulo "SensorAdapterManager" para añadir la funcionalidad del emulador. En la 
+issue PIOT-CDA-03-006, ya se implementó el método "_initEnvironmentalSensorTasks" el cual permite instanciar las tareas 
+de los sensores sin definirlos en el constructor de la clase. En esta ocasión, se le ha añadido al método un else donde 
+si enableEmulator es True se cargan dinámicamente las tareas del emulador (la carga dináimica se emplea para asegurar 
+que solo se carguen las tareas en tiempo de ejecución si el emulador está habilitado, ya que podrían estar configurados
+para comunicarse directamente con el hardware del Sense HAT).
+
+En esta sección, se ha ejecutado el test de integración "SensorEmulatorManagerTest", pasando correctamente pudiendo 
+observar los datos generados y el mensaje de cada sensor (humedad, temperatura y presión). También, si se procede a 
+cambiar algún valor desde la GUI del emulador, se observa dicho cambio en el output por terminal, mostrando la buena 
+conexión entre el emulador y las tareas de los sensores.
+
 PIOT-CDA-04-004 -> 
 PIOT-CDA-04-005 -> 
 PIOT-CDA-04-100 -> 
@@ -109,5 +120,6 @@ test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
 - HumidifierEmulatorTaskTest
 - HvacEmulatorTaskTest
 - LedDisplayEmulatorTaskTest
+- SensorEmulatorManagerTest
 
 EOF.
