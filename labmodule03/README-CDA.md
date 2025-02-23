@@ -98,9 +98,10 @@ se ejecutará la acción indicándose mediante un log informativo), "setDataMess
 "_initEnvironmentalActuationTasks" (encargado de cargar el entorno de las tareas de un actuador simulado y de crear 
 el actuador HVAC).
 
-En esta sección, se han ejecutado todos los tests unitarios como en la sección anterior (PIOT-CDA-03-006) menos el test 
-"DataUtilTest"  y el test de integración "ActuatorAdapterManagerTest", ejecutándose todos correctamente pudiendo 
-observar por consola los valores de los actuadores así como diferentes logs informativos de los mismos.
+En esta sección, se han ejecutado todos los tests unitarios como en la sección anterior menos el test 
+"DataUtilTest" (PIOT-CDA-03-006) y el test de integración "ActuatorAdapterManagerTest", ejecutándose todos 
+correctamente pudiendo observar por consola los valores de los actuadores así como diferentes logs informativos 
+de los mismos.
 
 PIOT-CDA-03-008 -> Se ha editado el módulo "DeviceDataManager", el cual corresponde al núcleo del CDA elaborado, 
 procesando los datos en la aplicación y dirigiendo todas las solicitudes al destino apropiado. Primero, se han editado 
@@ -160,5 +161,8 @@ your code to ensure it's correct. As for the tests you execute, you only need to
 test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
 
 - ConstrainedDeviceAppTest
+- DeviceDataManagerNoCommsTest
+- SensorAdapterManagerTest
+- ActuatorAdapterManagerTest
 
 EOF.
