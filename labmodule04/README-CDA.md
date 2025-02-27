@@ -94,8 +94,13 @@ En esta sección, se ha ejecutado el test de integración "ActuatorEmulatorManag
 al proporcionado en las notas del Notion (en el output se observa como se activa el actuador y se actualizan los 
 valores de los actuadores humidificador, HVAC y el display LED y como se desactiva el actuador correspondiente.
 
-PIOT-CDA-04-005 -> 
-PIOT-CDA-04-100 -> 
+PIOT-CDA-04-005 -> Esta sección resulta opcional en el caso de que se quisiera tener un dispositivo físico real 
+(por ello se pide instalar la librería I2c la cual permite la gestión y facilita la comunicación y el control eficiente 
+de diversos dispositivos electrónicos mediante el protocolo I2C (Inter-Integrated Circuit). En este caso, como no se
+dispone de un dispositivo físico real, este requisito no se ha realizado en la práctica.
+
+PIOT-CDA-04-100 -> Se ha llevado a cabo el merge de la rama labmodule04 a la rama main o default para comenzar la
+siguiente sección Lab Module 05.
 
 ### Code Repository and Branch
 
