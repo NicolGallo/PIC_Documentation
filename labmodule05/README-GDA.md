@@ -14,8 +14,10 @@ How does your implementation work?
 
 A continuación, se detalla el procedimiento seguido para implementar los requisitos establecidos en el Lab Module 05:
 
+
 PIOT-GDA-05-000 -> Se ha creado una nueva rama denominada labmodule05 para comenzar la realización de la presente 
 sección.
+
 
 PIOT-GDA-05-001 -> Se han editado los módulos "SensorData", "ActuatorData", "SystemPerformanceData" y "SystemStateData",
 los cuales contendrán los datos procedentes de los sensores y los actuadores. De todos los módulos editados, se ha 
@@ -28,6 +30,7 @@ convertible a/desde JSON.
 En esta sección, se han ejecutado los tests unitarios "ActuatorDataTest", "SensorDataTest", "SystemPerformanceDataTest" 
 y "SystemStateDataTest", los cuales todos pasan correctamente proporcionando información acerca de los diferentes 
 parámetros establecidos para los sensores y actuadores.
+
 
 PIOT-GDA-05-002 -> Se ha editado el módulo "SystemPerformanceManager" para poder almacenar los datos recopilados del 
 rendimiento del sistema. Para ello, se han introducido nuevas variables como locationID y una instancia del 
@@ -42,7 +45,22 @@ durante la prueba.
 Nota: Falta implementar el método getTelemetryValue dentro del módulo nuevo creado "SystemDiskUtilTask". Hay que 
 averiguar si JAVA permite en alguna de sus librerias algun método para el cálculo al igual que para la memoria y la CPU.
 
-PIOT-GDA-05-003 -> 
+
+PIOT-GDA-05-003 -> Del mismo modo que se realizó en la issue PIOT-CDA-05-002, en este caso se ha editado el módulo 
+"DataUtil" implementando los métodos ya definidos en la clase que permiten convertir los datos característicos de cada 
+actuador, sensor y del gestor de rendimiento del sistema a un JSON, y el proceso inverso (convertir un JSON en una 
+instancia del tipo ActuatorData, SensorData o SystemPerformanceManager).
+
+En esta sección, se ha ejecutado el test unitario "DataUtilTest" y el test de integración "DataIntegrationTest", 
+ambos pasando correctamente observando se producen las diferentes conversiones en ambas direcciones (instancia a JSON 
+y JSON a instancia). Es importante recalcar, que el test de integración funciona correctamente cuando lo ejecutamos por
+segunda vez habiendo ejecutado previamente el "DataIntegrationTest" del CDA implementado (ambos tests necesitan 
+ejecutarse a la par para obtener el output correcto).
+
+NOTA: En el caso de poder implementar correctamente el módulo "SystemStateData", se puede añadir opcionalmente los 
+mismos métodos pero para convertir en JSON los datos de dicha clase y al inrevés.
+
+
 PIOT-GDA-05-004 -> 
 PIOT-GDA-05-005 ->
 PIOT-GDA-05-006 ->
@@ -67,6 +85,7 @@ since you need to ensure you haven't introduced regressions.
 - SensorDataTest
 - SystemPerformanceDataTest
 - SystemStateDataTest
+- DataUtilTest
 
 ### Integration Tests Executed
 
@@ -76,7 +95,7 @@ your code to ensure it's correct. As for the tests you execute, you only need to
 test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
 
 - SystemPerformanceManagerTest
-- 
+- DataIntegrationTest
 - 
 
 EOF.
