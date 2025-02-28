@@ -61,12 +61,51 @@ NOTA: En el caso de poder implementar correctamente el módulo "SystemStateData"
 mismos métodos pero para convertir en JSON los datos de dicha clase y al inrevés.
 
 
-PIOT-GDA-05-004 -> 
-PIOT-GDA-05-005 ->
-PIOT-GDA-05-006 ->
-PIOT-GDA-05-007 ->
-PIOT-GDA-05-008 -> 
-PIOT-GDA-05-100 -> 
+PIOT-GDA-05-004 -> Se ha editado el módulo "DeviceDataManager", el cual resulta ser el núcleo principal del GDA 
+implementado debido a que se encarga de todo el procesamiento de datos que tiene lugar en la aplicación y, a la vez, 
+direcciona o dirige todas las solicitudes al destino apropiado. Para ello, se han añadido una serie de banderas o flags
+en el constructor de la clase, en relación a la disponibilidad de la comunicación de la conexión.
+
+Posteriormente, se ha implementado el método privado "initConnections", en la que se analizan las distintas flags 
+aunque de momento no se ha establecido la lógica correspondiente (eso se efectuará en etapas más adelante del proyecto).
+También, se ha implementado los métodos "startManager" y "stopManager" en que por el momento solo permiten visualizar 
+un mensaje de depuración conforme el DeviceDataManager comienza y termina.
+
+Por último, se ha implementado de forma básica la lógica de los métodos públicos de la clase como 
+"handleActuatorCommandResponse", "handleIncomingMessage", "handleSensorMessage" y "handleSystemPerformanceMessage" 
+(los cuales serán empleados más adelante como métodos callback) en que de momento solo incorporan un mensaje de 
+depuración conforme se ha llamado al método), y también el método setActuatorDataListener.
+
+En esta sección, se ha ejecutado el test de integración "DeviceDataManagerNoCommsTest", el cual pasa correctamente 
+ofreciendo un simple output indicando cuando comienza y cuando termina el DeviceDataManager (debido a que aún no se ha 
+procedido a realizar la lógica de conexión).
+
+NOTA: Los métodos privados añadidos al final del módulo falta chequear que hacen exactamente y se estan bien como estan
+actualmente (ya que en principio simplemente son declararlos y dejarlos vacíos por ahora).
+
+
+PIOT-GDA-05-005 -> Se ha editado el módulo "GatewayDeviceApp" en que se ha modificado el contenido del main para 
+eliminar a las llamadas sobre SystemPerformanceManager y cambiarlas por llamadas a DeviceDataManager dentro de los 
+métodos, principalemente, de "startManager" y "stopManager", ya que la instancia del DeviceDataManager llama a su vez 
+al SystemPerformanceManager. 
+
+En esta sección, se ha ejecutado el test de integración "GatewayDeviceAppTest", el cual se observa que pasa correctamente ya 
+que en el output se puede visualizar como se inicializa y comienza el GDA, el DeviceDataManager, el 
+SystemPerformanceManager y se ofrecen valores de uso de memoria y CPU, y también como se detienen los mismos elementos 
+(estas inicializaciones y detenciones se realizan en orden, indicando que todos los pasos seguidos hasta el momento se 
+han correlacionado adecuadamente). 
+
+
+PIOT-GDA-05-006 ->Requisito opcional, no implementado en la realización de la práctica.
+
+
+PIOT-GDA-05-007 ->Requisito opcional, no implementado en la realización de la práctica.
+
+
+PIOT-GDA-05-008 -> Requisito opcional, no implementado en la realización de la práctica.
+
+PIOT-GDA-05-100 -> Se ha llevado a cabo el merge de la rama labmodule05 a la rama main o default para comenzar la 
+siguiente sección.
 
 ### Code Repository and Branch
 
@@ -96,6 +135,7 @@ test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
 
 - SystemPerformanceManagerTest
 - DataIntegrationTest
-- 
+- DeviceDataManagerNoCommsTest
+- GatewayDeviceAppTest
 
 EOF.
