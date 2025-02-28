@@ -31,19 +31,30 @@ En esta sección, se ha ejecutado el test de integración "SystemPerformanceMana
 output como se ofrecen los valores de uso de cpu, memoria y disco (muy similar al output ofrecido cuando se ejecutó el 
 test en la implementación de PIOT-CDA-02-007).
 
-PIOT-CDA-05-002 ->
+PIOT-CDA-05-002 -> Se ha editado el módulo "DataUtil", modificando los métodos establecidos en la clase del módulo para 
+poder convertir cualquier ActuatorData, SensorData y SystemPerformanceData en formato JSON y el proceso inverso. 
+Por otro lado, también se han implementado un seguido de métodos privados de la clase denominados 
+"_formatDataAndLoadDictionary", "_generateJsonData" y "_updateIotData", para utilizar métodos propios de la librería 
+json para crear un JsonData, podder formatearlo y cargarlo el json y, por último, actualizar los valores presentes en 
+el json.
+
+En esta sección, se ha ejecutado el test unitario "DataUtilTest" y el test de integración "DataIntegrationTest", los 
+cuales pasan correctamente pero en el de integración se ha tenido que skippear los tests que se tratan de leer desde 
+un JSON (ESTO SE DEBERÁ VER POR QUÉ SE DEBE HACER ASÍ, PORQUE LA EJECUCIÓN DE ESTOS TESTS ESTÁN LIGADOS CON EL GDA, 
+QUIZÁS AL ACABAR ESTA SECCIÓN CON EL GDA SE EJECUTEN CON TODA NORMALIDAD).
 
 PIOT-CDA-05-003 -> Requisito opcional, no implementado en la realización de la práctica.
 
 PIOT-CDA-05-004 -> Requisito opcional, no implementado en la realización de la práctica.
 
-PIOT-CDA-05-005 -> 
+PIOT-CDA-05-100 -> Se ha llevado a cabo el merge de la rama labmodule05 a la rama main o default para comenzar la 
+siguiente sección.
 
 ### Code Repository and Branch
 
 NOTE: Be sure to include the branch.
 
-URL: 
+URL: https://github.com/NicolGallo/PIC_Python_Components/tree/labmodule05
 
 
 ### Unit Tests Executed
@@ -52,7 +63,7 @@ NOTE: The instructor will execute your unit tests. You only need to list each te
 (e.g. ConfigUtilTest, DataUtilTest, etc). Be sure to include all previous tests, too,
 since you need to ensure you haven't introduced regressions.
 
-- 
+- DataUtilTest
 - 
 - 
 
@@ -64,7 +75,7 @@ your code to ensure it's correct. As for the tests you execute, you only need to
 test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
 
 - SystemPerformanceManagerTest
-- 
+- DataIntegrationTest
 - 
 
 EOF.
