@@ -29,7 +29,19 @@ En esta sección, se han ejecutado los tests unitarios "ActuatorDataTest", "Sens
 y "SystemStateDataTest", los cuales todos pasan correctamente proporcionando información acerca de los diferentes 
 parámetros establecidos para los sensores y actuadores.
 
-PIOT-GDA-05-002 -> 
+PIOT-GDA-05-002 -> Se ha editado el módulo "SystemPerformanceManager" para poder almacenar los datos recopilados del 
+rendimiento del sistema. Para ello, se han introducido nuevas variables como locationID y una instancia del 
+IDataMessageListener, en que este último si está configurado permite invocar el correspondiente método de callback. 
+Con el método "handleTelemetry" se obtienen los valores de memoria y CPU utilizados por la aplicación mediante los 
+métodos definidos en la issue anterior en la clase SystemPerformaceData.
+
+En esta sección, se ha ejecutado el test de integración "SystemPerformanceManagerTest" proporcionando información sobre
+cuando comienza y termina el SystremPerformanceManager así como los valores de memoria y CPU utilizados 
+durante la prueba.
+
+Nota: Falta implementar el método getTelemetryValue dentro del módulo nuevo creado "SystemDiskUtilTask". Hay que 
+averiguar si JAVA permite en alguna de sus librerias algun método para el cálculo al igual que para la memoria y la CPU.
+
 PIOT-GDA-05-003 -> 
 PIOT-GDA-05-004 -> 
 PIOT-GDA-05-005 ->
@@ -63,7 +75,7 @@ some exceptions (such as your cloud connectivity tests). In such cases, they'll 
 your code to ensure it's correct. As for the tests you execute, you only need to list each
 test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
 
-- 
+- SystemPerformanceManagerTest
 - 
 - 
 
