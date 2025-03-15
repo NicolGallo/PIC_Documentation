@@ -8,7 +8,13 @@ Be sure to implement all the PIOT-CDA-* issues (requirements).
 
 NOTE: Include two full paragraphs describing your implementation approach by answering the questions listed below.
 
-What does your implementation do? 
+What does your implementation do?
+
+La implementación habilita el uso del Sense HAT en modo emulador para sensores y actuadores relacionados con humedad, 
+temperatura y presión. También, modifica los módulos específicos para simular el comportamiento de estos dispositivos 
+de forma virtual, permitiendo activar sensores, recolectar datos, activar actuadores, y visualizar resultados en el 
+propio emulador. Los tests confirman el correcto funcionamiento del emulador mostrando datos generados y las acciones 
+realizadas por los actuadores.
 
 How does your implementation work?
 
@@ -57,7 +63,7 @@ el name y el typeID del emulador de la tarea del sensor de humedad en cuestión 
 "generateTelemetry" implementado previamente en la clase BaseSensorSimTask. Este procedimiento se sigue de la misma 
 forma para los módulos "TemperatureSensorEmulatorTask" y "PressureSensorEmulatorTask".
 
-En esta seccion, se han ejecutado los tests de integración "HumidityEmulatorTaskTest", "PressureEmulatorTaskTest" y 
+En esta sección, se han ejecutado los tests de integración "HumidityEmulatorTaskTest", "PressureEmulatorTaskTest" y 
 "TemperatureEmulatorTaskTest", pasando todos ellos correctamente proporcionando información acerca del dato tomado por
 el sensor, el nombre y ID del sensor, entre otros parámetros. Si se cambian valores del respectivo sensor en la GUI del 
 Sense HAT mientras se ejecutan los tests se puede observar como el valor mostrado corresponde al establecido.
@@ -71,12 +77,12 @@ En esta sección, se han ejecutado los tests de integración "HumidifierEmulator
 "LedDisplayEmulatorTaskTest", pasando todos ellos correctamente proporcionando información acerca de cuando se activa 
 el actuador, el ID del actuador, el valor ofrecido, entre otros parámetros (el output es muy similar al proporcionado 
 en las notas del Notion). También, en el momento que se activa el actuador correspondiente, en la pantalla del emulador
-Sense HAT se visualiza que el tipo de actuador esta en modo ON y el valor aplicado.
+Sense HAT se visualiza que el tipo de actuador está en modo ON y el valor aplicado.
 
 PIOT-CDA-04-003 -> Se ha editado el módulo "SensorAdapterManager" para añadir la funcionalidad del emulador. En la 
 issue PIOT-CDA-03-006, ya se implementó el método "_initEnvironmentalSensorTasks" el cual permite instanciar las tareas 
 de los sensores sin definirlos en el constructor de la clase. En esta ocasión, se le ha añadido al método un else donde 
-si enableEmulator es True se cargan dinámicamente las tareas del emulador (la carga dináimica se emplea para asegurar 
+si enableEmulator es True se cargan dinámicamente las tareas del emulador (la carga dinámica se emplea para asegurar 
 que solo se carguen las tareas en tiempo de ejecución si el emulador está habilitado, ya que podrían estar configurados
 para comunicarse directamente con el hardware del Sense HAT).
 
@@ -86,7 +92,7 @@ cambiar algún valor desde la GUI del emulador, se observa dicho cambio en el ou
 conexión entre el emulador y las tareas de los sensores.
 
 PIOT-CDA-04-004 -> Se ha editado el módulo "ActuatorAdapterManager para añadir la funcionalidad del emulador. El 
-procedimiento es muy similar a la issue anterior pero, en este caso, se modifica la implementación del método 
+procedimiento es muy similar a la issue anterior, pero en este caso, se modifica la implementación del método 
 "_initEnvironmentalActuationTasks" efectuada en la issue PIOT-CDA-03-007. Para ello, al método se le adiciona un else 
 donde si el useEmulator es True se cargarán dinámicamente las tareas del emulador.
 
@@ -96,7 +102,7 @@ valores de los actuadores humidificador, HVAC y el display LED y como se desacti
 
 PIOT-CDA-04-005 -> Esta sección resulta opcional en el caso de que se quisiera tener un dispositivo físico real 
 (por ello se pide instalar la librería I2c la cual permite la gestión y facilita la comunicación y el control eficiente 
-de diversos dispositivos electrónicos mediante el protocolo I2C (Inter-Integrated Circuit). En este caso, como no se
+de diversos dispositivos electrónicos mediante el protocolo I2C o Inter-Integrated Circuit). En este caso, como no se
 dispone de un dispositivo físico real, este requisito no se ha realizado en la práctica.
 
 PIOT-CDA-04-100 -> Se ha llevado a cabo el merge de la rama labmodule04 a la rama main o default para comenzar la

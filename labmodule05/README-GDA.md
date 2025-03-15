@@ -10,19 +10,22 @@ NOTE: Include two full paragraphs describing your implementation approach by ans
 
 What does your implementation do? 
 
+La implementación llevada a cabo, permite gestionar y procesar datos de sensores, actuadores y del rendimiento del 
+sistema dentro del GDA. También, define estructuras de datos, los convierte a formato JSON, y coordina el flujo de 
+información mediante el módulo DeviceDataManager. Por otro lado, estos componentes se han integrado en la aplicación 
+principal GatewayDeviceApp, asegurando que el sistema pueda iniciar, recopilar datos y detenerse correctamente.
+
 How does your implementation work?
 
 A continuación, se detalla el procedimiento seguido para implementar los requisitos establecidos en el Lab Module 05:
 
-
 PIOT-GDA-05-000 -> Se ha creado una nueva rama denominada labmodule05 para comenzar la realización de la presente 
 sección.
-
 
 PIOT-GDA-05-001 -> Se han editado los módulos "SensorData", "ActuatorData", "SystemPerformanceData" y "SystemStateData",
 los cuales contendrán los datos procedentes de los sensores y los actuadores. De todos los módulos editados, se ha 
 procedido a implementar los respectivos setters y getters de las clases para obtener y definir los valores de los 
-diferentes paramétros correspondientes a los sensores o los actuadores. El último módulo, el "SystemStateData", se ha 
+diferentes parámetros correspondientes a los sensores o los actuadores. El último módulo, el "SystemStateData", se ha 
 intentado implementar de forma opcional (aunque falta confirmar la correcta implementación). Este módulo proporciona un
 único espacio para contener todos los datos que eventualmente se enviarán a la nube en una estructura fácilmente 
 convertible a/desde JSON.
@@ -36,14 +39,14 @@ PIOT-GDA-05-002 -> Se ha editado el módulo "SystemPerformanceManager" para pode
 rendimiento del sistema. Para ello, se han introducido nuevas variables como locationID y una instancia del 
 IDataMessageListener, en que este último si está configurado permite invocar el correspondiente método de callback. 
 Con el método "handleTelemetry" se obtienen los valores de memoria y CPU utilizados por la aplicación mediante los 
-métodos definidos en la issue anterior en la clase SystemPerformaceData.
+métodos definidos en la issue anterior en la clase SystemPerformanceData.
 
 En esta sección, se ha ejecutado el test de integración "SystemPerformanceManagerTest" proporcionando información sobre
-cuando comienza y termina el SystremPerformanceManager así como los valores de memoria y CPU utilizados 
+cuando comienza y termina el SystemPerformanceManager así como los valores de memoria y CPU utilizados 
 durante la prueba.
 
 Nota: Falta implementar el método getTelemetryValue dentro del módulo nuevo creado "SystemDiskUtilTask". Hay que 
-averiguar si JAVA permite en alguna de sus librerias algun método para el cálculo al igual que para la memoria y la CPU.
+averiguar si JAVA permite en alguna de sus librerias algún método para el cálculo al igual que para la memoria y la CPU.
 
 
 PIOT-GDA-05-003 -> Del mismo modo que se realizó en la issue PIOT-CDA-05-002, en este caso se ha editado el módulo 
@@ -58,7 +61,7 @@ segunda vez habiendo ejecutado previamente el "DataIntegrationTest" del CDA impl
 ejecutarse a la par para obtener el output correcto).
 
 NOTA: En el caso de poder implementar correctamente el módulo "SystemStateData", se puede añadir opcionalmente los 
-mismos métodos pero para convertir en JSON los datos de dicha clase y al inrevés.
+mismos métodos pero para convertir en JSON los datos de dicha clase y al revés.
 
 
 PIOT-GDA-05-004 -> Se ha editado el módulo "DeviceDataManager", el cual resulta ser el núcleo principal del GDA 
@@ -74,23 +77,23 @@ un mensaje de depuración conforme el DeviceDataManager comienza y termina.
 Por último, se ha implementado de forma básica la lógica de los métodos públicos de la clase como 
 "handleActuatorCommandResponse", "handleIncomingMessage", "handleSensorMessage" y "handleSystemPerformanceMessage" 
 (los cuales serán empleados más adelante como métodos callback) en que de momento solo incorporan un mensaje de 
-depuración conforme se ha llamado al método), y también el método setActuatorDataListener.
+depuración conforme se ha llamado al método, y también el método setActuatorDataListener.
 
 En esta sección, se ha ejecutado el test de integración "DeviceDataManagerNoCommsTest", el cual pasa correctamente 
 ofreciendo un simple output indicando cuando comienza y cuando termina el DeviceDataManager (debido a que aún no se ha 
 procedido a realizar la lógica de conexión).
 
-NOTA: Los métodos privados añadidos al final del módulo falta chequear que hacen exactamente y se estan bien como estan
+NOTA: Los métodos privados añadidos al final del módulo falta chequear que hacen exactamente y si están bien como están
 actualmente (ya que en principio simplemente son declararlos y dejarlos vacíos por ahora).
 
 
 PIOT-GDA-05-005 -> Se ha editado el módulo "GatewayDeviceApp" en que se ha modificado el contenido del main para 
 eliminar a las llamadas sobre SystemPerformanceManager y cambiarlas por llamadas a DeviceDataManager dentro de los 
-métodos, principalemente, de "startManager" y "stopManager", ya que la instancia del DeviceDataManager llama a su vez 
+métodos, principalmente, de "startManager" y "stopManager", ya que la instancia del DeviceDataManager llama a su vez 
 al SystemPerformanceManager. 
 
-En esta sección, se ha ejecutado el test de integración "GatewayDeviceAppTest", el cual se observa que pasa correctamente ya 
-que en el output se puede visualizar como se inicializa y comienza el GDA, el DeviceDataManager, el 
+En esta sección, se ha ejecutado el test de integración "GatewayDeviceAppTest", el cual se observa que pasa 
+correctamente, ya que en el output se puede visualizar como se inicializa y comienza el GDA, el DeviceDataManager, el 
 SystemPerformanceManager y se ofrecen valores de uso de memoria y CPU, y también como se detienen los mismos elementos 
 (estas inicializaciones y detenciones se realizan en orden, indicando que todos los pasos seguidos hasta el momento se 
 han correlacionado adecuadamente). 
@@ -98,9 +101,7 @@ han correlacionado adecuadamente).
 
 PIOT-GDA-05-006 ->Requisito opcional, no implementado en la realización de la práctica.
 
-
 PIOT-GDA-05-007 ->Requisito opcional, no implementado en la realización de la práctica.
-
 
 PIOT-GDA-05-008 -> Requisito opcional, no implementado en la realización de la práctica.
 

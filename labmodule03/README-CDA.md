@@ -8,7 +8,14 @@ Be sure to implement all the PIOT-CDA-* issues (requirements).
 
 NOTE: Include two full paragraphs describing your implementation approach by answering the questions listed below.
 
-What does your implementation do? 
+What does your implementation do?
+
+La implementación permite gestionar datos de sensores y actuadores mediante clases específicas que heredan 
+funcionalidades básicas, manejando información acerca de la humedad, temperatura y presión. Además, incorpora 
+emuladores que simulan el comportamiento del hardware real (simulando captación de datos), 
+y el módulo DeviceDataManager coordina todo el procesamiento, gestionando la comunicación y ejecución. 
+Finalmente, se procede a modificar la aplicación principal para facilitar la gestión y visualización de los datos 
+desde la misma.
 
 How does your implementation work?
 
@@ -25,7 +32,7 @@ BaseIotData) que contendrá la instancia de ActuatorData que definirá los datos
 Por último, se ha implementado el método __str__(self) para ofrecer una mejor representación de los 
 parámetros de ActuatorData.
 
-Seguidamente, se ha editado el módulo SensorData, el cual tambien hereda de BaseIotData y actúa como un simple sensor o 
+Seguidamente, se ha editado el módulo SensorData, el cual también hereda de BaseIotData y actúa como un simple sensor o 
 recopilador de datos. En dicho módulo también se ha editado el constructor de la clase añadiendo la variable "value" 
 así como su método get y set, la implementación del método "_handleUpdateData" y del método __str__(self) para ofrecer 
 una representación detallada del sensorData.
@@ -51,10 +58,11 @@ También, se han ejecutado los tests unitarios "HumiditySensorSimTaskTest", "Pre
 cada tipo de sensor así el valor de medición dado para probar el test.
 
 PIOT-CDA-03-004 -> Se ha editado el módulo BaseActuatorSimTask, añadiendo en primera instancia, las variables name, 
-typeID, simpleName (utilizado solamente para realiazar el logging), lastknownCommand (utilizado para almacenar el 
-último comando ejecutado) y lastKnownVAlue (utilizado para almacenar el último valor aplicado).
+typeID, simpleName (utilizado solamente para realizar el logging), lastknownCommand (utilizado para almacenar el 
+último comando ejecutado) y lastKnownValue (utilizado para almacenar el último valor aplicado).
 Seguidamente, se ha implementado el método privado "_ActivateActuator" y "_deactivateActuator" para proporcionar un 
 log informativo acerca de la puesta en ON y OFF del actuador, respectivamente.
+
 Por último, se ha implementado el método "updateActuator", el cual procesa los comandos para el actuador devolviendo 
 una respuesta con su estado actualizado. Si el comando resulta ser ON u OFF (un comando válido), procederá a activar 
 o desactivar el actuador. Si el comando resulta ser inválido, se registrará el error asignando el código de error por 
@@ -125,7 +133,7 @@ del DeviceDataManager como "startManager" y "stopManager".
 
 En esta sección, se ha ejecutado el test de integración "ConstrainedDeviceAppTest", pasando correctamente y pudiendo 
 observar los diferentes logs informativos como cuando comienza y termina el CDA, lo mismo con el DeviceDataManager, el 
-SystemPerformanceManage, el SensorAdapterManager, también se observa en el momento que el scheduler o planificador esta 
+SystemPerformanceManage, el SensorAdapterManager, también se observa en el momento que el scheduler o planificador está 
 en búsqueda de correr nuevos jobs o trabajos y cuando no detecta mas jobs se detiene el CDA.
 
 PIOT-CDA-03-100 -> Se ha llevado a cabo el merge de la rama labmodule03 a la rama main o default para comenzar la

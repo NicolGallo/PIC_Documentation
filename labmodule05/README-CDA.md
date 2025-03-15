@@ -8,7 +8,11 @@ Be sure to implement all the PIOT-CDA-* issues (requirements).
 
 NOTE: Include two full paragraphs describing your implementation approach by answering the questions listed below.
 
-What does your implementation do? 
+What does your implementation do?
+
+La implementación permite recopilar y almacenar datos de rendimiento del sistema, incluyendo el uso de CPU, memoria y 
+disco. También facilita la conversión de estos datos a formato JSON y viceversa, asegurando su correcta gestión y 
+transmisión. Además, se han incorporado pruebas para verificar el funcionamiento del sistema.
 
 How does your implementation work?
 
@@ -16,13 +20,13 @@ A continuación, se detalla el procedimiento seguido para implementar los requis
 
 PIOT-CDA-05-000 -> Se ha creado una nueva rama denominada labmodule05 para comenzar la realización de la presente sección.
 
-PIOT-CDA-05-001 -> Se ha editado el módulo "SystemPerformanceManagerpara poder implementar el almacenamiento de los 
+PIOT-CDA-05-001 -> Se ha editado el módulo "SystemPerformanceManager" para poder implementar el almacenamiento de los 
 datos recopilados por el sistema de rendimiento. Para ello, dentro de la clase del módulo, se ha editado el método 
 "handleTelemetry" incluyendo la inicialización de una instancia de tipo SystemPerformanceData, la cual permitirá 
 obtener los datos de uso de CPU y memoria.
 
 Opcionalmente, se ha añadido dentro del método "handleTelemetry" dentro de la clase SystemPerformanceManager para que, 
-en adición. a parte de la recopilación del uso de CPU y memoria, se recopile el uso de disco. Para ello, también se ha 
+en adición, aparte de la recopilación del uso de CPU y memoria, se recopile el uso de disco. Para ello, también se ha 
 implementado un nuevo módulo denominado SystemDiskUtilTask para llevar a cabo dicha tarea (implementando su constructor
 y el método "getTelemetryValue" dentro de su clase. La estructura es muy similar a los módulos ya implementados como 
 "SystemCpuUtilTask" y "SystemMemUtilTask").
