@@ -107,7 +107,7 @@ se ejecutará la acción indicándose mediante un log informativo), "setDataMess
 el actuador HVAC).
 
 En esta sección, se han ejecutado todos los tests unitarios como en la sección anterior (PIOT-CDA-03-006) menos el test 
-"DataUtilTest"  y el test de integración "ActuatorAdapterManagerTest", ejecutándose todos correctamente pudiendo 
+"DataUtilTest" y el test de integración "ActuatorAdapterManagerTest", ejecutándose todos correctamente pudiendo 
 observar por consola los valores de los actuadores así como diferentes logs informativos de los mismos.
 
 PIOT-CDA-03-008 -> Se ha editado el módulo "DeviceDataManager", el cual corresponde al núcleo del CDA elaborado, 
@@ -134,7 +134,7 @@ del DeviceDataManager como "startManager" y "stopManager".
 En esta sección, se ha ejecutado el test de integración "ConstrainedDeviceAppTest", pasando correctamente y pudiendo 
 observar los diferentes logs informativos como cuando comienza y termina el CDA, lo mismo con el DeviceDataManager, el 
 SystemPerformanceManage, el SensorAdapterManager, también se observa en el momento que el scheduler o planificador está 
-en búsqueda de correr nuevos jobs o trabajos y cuando no detecta mas jobs se detiene el CDA.
+en búsqueda de correr nuevos jobs o trabajos y cuando no detecta más jobs se detiene el CDA.
 
 PIOT-CDA-03-100 -> Se ha llevado a cabo el merge de la rama labmodule03 a la rama main o default para comenzar la
 siguiente sección Lab Module 04.

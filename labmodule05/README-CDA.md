@@ -44,8 +44,7 @@ el json.
 
 En esta sección, se ha ejecutado el test unitario "DataUtilTest" y el test de integración "DataIntegrationTest", los 
 cuales pasan correctamente pero en el de integración se ha tenido que skippear los tests que se tratan de leer desde 
-un JSON (ESTO SE DEBERÁ VER POR QUÉ SE DEBE HACER ASÍ, PORQUE LA EJECUCIÓN DE ESTOS TESTS ESTÁN LIGADOS CON EL GDA, 
-QUIZÁS AL ACABAR ESTA SECCIÓN CON EL GDA SE EJECUTEN CON TODA NORMALIDAD).
+un JSON (esto no es así cuando mas adelante se ejecuta a la vez el GDA).
 
 PIOT-CDA-05-003 -> Requisito opcional, no implementado en la realización de la práctica.
 

@@ -38,16 +38,15 @@ parámetros establecidos para los sensores y actuadores.
 PIOT-GDA-05-002 -> Se ha editado el módulo "SystemPerformanceManager" para poder almacenar los datos recopilados del 
 rendimiento del sistema. Para ello, se han introducido nuevas variables como locationID y una instancia del 
 IDataMessageListener, en que este último si está configurado permite invocar el correspondiente método de callback. 
-Con el método "handleTelemetry" se obtienen los valores de memoria y CPU utilizados por la aplicación mediante los 
+Con el método "handleTelemetry" se obtienen los valores de memoria y CPU y disco utilizados por la aplicación mediante los 
 métodos definidos en la issue anterior en la clase SystemPerformanceData.
 
 En esta sección, se ha ejecutado el test de integración "SystemPerformanceManagerTest" proporcionando información sobre
 cuando comienza y termina el SystemPerformanceManager así como los valores de memoria y CPU utilizados 
 durante la prueba.
 
-Nota: Falta implementar el método getTelemetryValue dentro del módulo nuevo creado "SystemDiskUtilTask". Hay que 
-averiguar si JAVA permite en alguna de sus librerias algún método para el cálculo al igual que para la memoria y la CPU.
-
+Nota: En esta sección se ha creado el test unitario SystemDiskUtilTaskTest para comprobar el correcto funcionamiento
+del cálculo del disco utilizado en la ejecución.
 
 PIOT-GDA-05-003 -> Del mismo modo que se realizó en la issue PIOT-CDA-05-002, en este caso se ha editado el módulo 
 "DataUtil" implementando los métodos ya definidos en la clase que permiten convertir los datos característicos de cada 
@@ -69,7 +68,7 @@ implementado debido a que se encarga de todo el procesamiento de datos que tiene
 direcciona o dirige todas las solicitudes al destino apropiado. Para ello, se han añadido una serie de banderas o flags
 en el constructor de la clase, en relación a la disponibilidad de la comunicación de la conexión.
 
-Posteriormente, se ha implementado el método privado "initConnections", en la que se analizan las distintas flags 
+Posteriormente, se ha implementado el método privado "initManager", en la que se analizan las distintas flags 
 aunque de momento no se ha establecido la lógica correspondiente (eso se efectuará en etapas más adelante del proyecto).
 También, se ha implementado los métodos "startManager" y "stopManager" en que por el momento solo permiten visualizar 
 un mensaje de depuración conforme el DeviceDataManager comienza y termina.
@@ -94,7 +93,7 @@ al SystemPerformanceManager.
 
 En esta sección, se ha ejecutado el test de integración "GatewayDeviceAppTest", el cual se observa que pasa 
 correctamente, ya que en el output se puede visualizar como se inicializa y comienza el GDA, el DeviceDataManager, el 
-SystemPerformanceManager y se ofrecen valores de uso de memoria y CPU, y también como se detienen los mismos elementos 
+SystemPerformanceManager y se ofrecen valores de uso de memoria y CPU y disco, y también como se detienen los mismos elementos 
 (estas inicializaciones y detenciones se realizan en orden, indicando que todos los pasos seguidos hasta el momento se 
 han correlacionado adecuadamente). 
 
