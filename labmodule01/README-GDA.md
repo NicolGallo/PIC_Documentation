@@ -10,13 +10,22 @@ NOTE: Include two full paragraphs describing your implementation approach by ans
 
 What does your implementation do? 
 
+Al igual que en el módulo del CDA, en este caso, tampoco se ha editado el código base proporcionado por el profesor.
+Solamente, se ha procedido a crear un template del repositorio de GDA original e importar el proyecto para comenzar
+su elaboración en IntelliJ.
+
+Como apunte se ha creado el entorno de trabajo al importar el proyecto generándose el archivo por.xml correspondiente,
+en que se ha cambiado la varsión de Maven a 21 por problemas de incompatibilidad.
+
+Como dicho módulo era configurar el proyecto, no se ha procedido a ejecutar ningún test.
+
 How does your implementation work?
 
 ### Code Repository and Branch
 
 NOTE: Be sure to include the branch.
 
-URL: 
+URL: https://github.com/NicolGallo/PIC_Java_Components/tree/labmodule1
 
 
 ### Unit Tests Executed
