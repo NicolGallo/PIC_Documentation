@@ -8,7 +8,16 @@ Be sure to implement all the PIOT-CDA-* issues (requirements).
 
 NOTE: Include two full paragraphs describing your implementation approach by answering the questions listed below.
 
-What does your implementation do? 
+What does your implementation do?
+
+En el siguiente módulo no se ha procedido a editar el código base proporcionado por el profesor. Simplemente se ha creado un template del repositorio original
+y se ha procedido a importar el proyecto para comenzar su elaboración en PyCharm (la elección de Pycharm se ha efectuado por comodidad y por ser el de uso
+habitual a la hora de hacer los proyectos.
+
+Por otro lado, se estableció correctamente el working directory y la variable PYTHONPATH siguiendo las instrucciones proporcionadas por el profesor en un video 
+de Moovi, así como algunos cambios en el ConfigConst para establecer rutas absolutas.
+
+Como dicho módulo era configurar el proyecto, no se ha procedido a ejecutar ningún test.
 
 How does your implementation work?
 
