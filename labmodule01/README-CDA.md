@@ -17,7 +17,8 @@ habitual a la hora de hacer los proyectos.
 Por otro lado, se estableció correctamente el working directory y la variable PYTHONPATH siguiendo las instrucciones proporcionadas por el profesor en un video 
 de Moovi, así como algunos cambios en el ConfigConst para establecer rutas absolutas.
 
-Como dicho módulo era configurar el proyecto, no se ha procedido a ejecutar ningún test.
+A parte de proceder con lo anteriormente comentado, se ha procedido a ejecutar el test unitario "ConfigUtilTest" y el test de integración "ConstrainedDeviceAppTest" 
+para la comprobación de que todo está en correcto funcionamiento.
 
 How does your implementation work?
 
@@ -33,7 +34,7 @@ NOTE: The instructor will execute your unit tests. You only need to list each te
 (e.g. ConfigUtilTest, DataUtilTest, etc). Be sure to include all previous tests, too,
 since you need to ensure you haven't introduced regressions.
 
-- 
+- ConfigUtilTest
 - 
 - 
 
@@ -44,7 +45,7 @@ some exceptions (such as your cloud connectivity tests). In such cases, they'll 
 your code to ensure it's correct. As for the tests you execute, you only need to list each
 test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
 
-- 
+- ConstrainedDeviceAppTest
 - 
 - 
 
