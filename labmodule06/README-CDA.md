@@ -31,7 +31,7 @@ propiedades del cliente MQTT (host, port, keepAlive, QoS por defecto) las cuales
 El clientID, por el momento, se ha establecido  el id  denominado "constraineddevice001" (aunque pueden haber distintas
 maneras de establecerlo).
 
-Seguidamente, se ha editado el método "connectCLient", inicializando el mqttClient si no lo está y se chequea si está 
+Seguidamente, se ha editado el método "connectClient", inicializando el mqttClient si no lo está y se chequea si está 
 conectado o no, en que si no lo está se procede a realizar la conexión con el broker. Del mismo modo, se ha editado el 
 método "disconnectClient" para realizar la funcionalidad inversa.
 
@@ -47,10 +47,10 @@ PIOT-CDA-06-002 -> Se ha editado nuevamente el módulo MqttClientConnector para 
 del cliente MQTT. 
 
 Por el momento, se han añadido solamente logs informativos para comprobar que los callbacks están funcionando 
-correctamente. El método "onMessage" es el de mayor relevancia ya que se llamará cada ocasión que se reciba un mensaje 
+correctamente. El método "onMessage" es el de mayor relevancia, ya que se llamará cada ocasión que se reciba un mensaje 
 en el topic al que el cliente MQTT se encuentra suscrito (en dicho método, los logs informativos corresponden a si el 
 mensaje recibido presenta un payload). También, se han añadido logs informativos en los métodos "onPublish" y 
-"onSubscribe" para manerjar los eventos de notificación de publicación de mensajes y manejar los eventos de notificación
+"onSubscribe" para manejar los eventos de notificación de publicación de mensajes y manejar los eventos de notificación
 de suscripción a los tópicos, respectivamente.
 
 En esta sección, solamente se ha ejecutado el test de integración "MqttClientConnectorTest" observando los logs 
