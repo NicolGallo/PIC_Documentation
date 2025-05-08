@@ -8,7 +8,17 @@ Be sure to implement all the PIOT-CDA-* issues (requirements).
 
 NOTE: Include two full paragraphs describing your implementation approach by answering the questions listed below.
 
-What does your implementation do? 
+What does your implementation do?
+
+En el siguiente módulo no se ha procedido a editar el código base proporcionado por el profesor. Simplemente se ha creado un template del repositorio original
+y se ha procedido a importar el proyecto para comenzar su elaboración en PyCharm (la elección de Pycharm se ha efectuado por comodidad y por ser el de uso
+habitual a la hora de hacer los proyectos.
+
+Por otro lado, se estableció correctamente el working directory y la variable PYTHONPATH siguiendo las instrucciones proporcionadas por el profesor en un video 
+de Moovi, así como algunos cambios en el ConfigConst para establecer rutas absolutas.
+
+A parte de proceder con lo anteriormente comentado, se ha procedido a ejecutar el test unitario "ConfigUtilTest" y el test de integración "ConstrainedDeviceAppTest" 
+para la comprobación de que todo está en correcto funcionamiento.
 
 How does your implementation work?
 
@@ -16,7 +26,7 @@ How does your implementation work?
 
 NOTE: Be sure to include the branch 
 
-URL:
+URL: https://github.com/NicolGallo/PIC_Python_Components/tree/labmodule01
 
 ### Unit Tests Executed
 
@@ -24,7 +34,7 @@ NOTE: The instructor will execute your unit tests. You only need to list each te
 (e.g. ConfigUtilTest, DataUtilTest, etc). Be sure to include all previous tests, too,
 since you need to ensure you haven't introduced regressions.
 
-- 
+- ConfigUtilTest
 - 
 - 
 
@@ -35,7 +45,7 @@ some exceptions (such as your cloud connectivity tests). In such cases, they'll 
 your code to ensure it's correct. As for the tests you execute, you only need to list each
 test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
 
-- 
+- ConstrainedDeviceAppTest
 - 
 - 
 
