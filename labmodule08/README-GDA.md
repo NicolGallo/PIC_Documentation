@@ -17,8 +17,11 @@ A continuación, se detalla el procedimiento seguido para implementar los requis
 PIOT-CFG-08-001 -> Se ha procedido a instalar y configurar las herramientas del Californium CoAP para testear el 
 servidor CoAP creado. Para el testeo se han realizado un par de pruebas.
 
-1) Arrancar el server (test_coap_1.png)
-2) Pasar un test de modo cliente (test_coap_2.png)
+1) Arrancar el server 
+![img.png](test_coap_1.png)
+
+2) Pasar un test de modo cliente
+![img.png](test_coap_1.png)
 
 PIOT-GDA-08-000 -> Se ha procedido a crear una nueva rama labmodule8 para empezar la elaboración de la práctica 08.
 
@@ -71,12 +74,32 @@ completará o será necesaria en laboratorios posteriores) del método privado "
 debería ser llamado siempre que haya un ActuatorData en camino.
 
 En esta sección, se ha procedido a ejecutar el test de integración "CoapServerGatewayTest" y también se ha procedido a 
-utilizar el Californium Tools CLI client para testear las implementaciones GET y POST llevadas a cabo sobre los 
-siguientes recursos: PIOT/ConstrainedDevice/SensorMsg y PIOT/ConstrainedDevice/SystemPerfMsg. En la foto de a 
+utilizar el Californium Tools CLI client para testear las implementaciones GET y POST llevadas a cabo sobre el 
+siguiente recurso: PIOT/ConstrainedDevice/SystemPerfMsg. En la foto de a 
 continuación, se puede observar la salida por terminal con el Californium Tools CLI client, que resulta bastante similar
 a la esperada dadas las notas del Notion proporcionado:
 
-- Output presentado al ejecutar por terminal el Californium Tools CLI client: output_test_california_tools_client.png
+![img.png](output_test_california_tools_client.png)
+
+En la imagen se puede observar puntos clave a comentar:
+
+1. CoAP Request: Se envió una solicitud CoAP de tipo GET al recurso coap://localhost:5683/PIOT/ConstrainedDevice/SystemPerfMsg.
+
+2. UDP[localhost/127.0.0.1:5683]: El cliente ha enviado la solicitud a través de UDP a la dirección y puerto especificados.
+
+3. CoAP Response: El servidor CoAP respondió.
+
+4. Status: 2.04 - CHANGED: El servidor ha respondido con un código de estado 2.04 CHANGED. Este hecho puede ser un poco
+inusual para un GET (normalmente se esperaría 2.05 CONTENT para una respuesta exitosa con datos). Sin embargo, podría 
+indicar que el servidor procesó la solicitud GET de alguna manera que resultó en un "cambio" en su estado interno o en 
+el recurso.
+
+5. Options: {"Content-Format":"text/plain"}: Se indica que la respuesta contiene texto plano.
+
+6. Payload: 54 Bytes: El cuerpo de la respuesta tiene 54 bytes.
+
+7. update system perf data request handled: SystemPerfMsg: Este es el contenido del payload de la respuesta del servidor.
+Indica que tu servidor CoAP ha procesado la solicitud GET para el recurso SystemPerfMsg.
 
 ### Code Repository and Branch
 
