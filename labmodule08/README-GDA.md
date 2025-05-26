@@ -17,8 +17,8 @@ A continuación, se detalla el procedimiento seguido para implementar los requis
 PIOT-CFG-08-001 -> Se ha procedido a instalar y configurar las herramientas del Californium CoAP para testear el 
 servidor CoAP creado. Para el testeo se han realizado un par de pruebas.
 
-1) Arrancar el server (foto_coap_1.png)
-2) Pasar un test de modo cliente (foto_coap_2.png)
+1) Arrancar el server (test_coap_1.png)
+2) Pasar un test de modo cliente (test_coap_2.png)
 
 PIOT-GDA-08-000 -> Se ha procedido a crear una nueva rama labmodule8 para empezar la elaboración de la práctica 08.
 
@@ -76,7 +76,7 @@ siguientes recursos: PIOT/ConstrainedDevice/SensorMsg y PIOT/ConstrainedDevice/S
 continuación, se puede observar la salida por terminal con el Californium Tools CLI client, que resulta bastante similar
 a la esperada dadas las notas del Notion proporcionado:
 
-- Output presentado al ejecutar por terminal el Californium Tools CLI client: 
+- Output presentado al ejecutar por terminal el Californium Tools CLI client: output_test_california_tools_client.png
 
 ### Code Repository and Branch
 
