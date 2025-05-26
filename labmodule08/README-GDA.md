@@ -12,11 +12,77 @@ What does your implementation do?
 
 How does your implementation work?
 
+A continuación, se detalla el procedimiento seguido para implementar los requisitos establecidos en el Lab Module 08:
+
+PIOT-CFG-08-001 -> Se ha procedido a instalar y configurar las herramientas del Californium CoAP para testear el 
+servidor CoAP creado. Para el testeo se han realizado un par de pruebas.
+
+1) Arrancar el server (foto_coap_1.png)
+2) Pasar un test de modo cliente (foto_coap_2.png)
+
+PIOT-GDA-08-000 -> Se ha procedido a crear una nueva rama labmodule8 para empezar la elaboración de la práctica 08.
+
+PIOT-GDA-08-001 -> Primeramente, se ha modificado el pom.xml del proyecto para actualizar las dependencias incluyendo la
+dependencia del Californium. Seguidamente, se ha procedido a editar el módulo "CoapServerGateway" añadiendo la lógica de
+los métodos "startServer" y "stopServer" para poder arrancar o parar el servidor CoAP. Por otro lado, se ha añadido la 
+lógica del initServer para inicializar el servidor en caso de no estarlo. Por último, las modificaciones realizadas en 
+el anterior módulo se han incluido en el DeviceDataManager, en que se ha añadido una lógica similar a cuando se efectuó 
+el MQTT en los métodos "startManager" y "stopManager", así como la línea de código del método privado "initManager" 
+indicando que si está habilitado el servidor CoAP se cree una instancia del CoapServerGateway.
+
+En esta sección, no se han efectuado tests, ya que tal y como especifica las notas del Notion proporcionado, el CoAP 
+Server necesita tener almenos un endpoint definido antes de que tenga ninguna utilidad real y la ejecución de este hecho
+se realizará más adelante.
+
+PIOT-GDA-08-002 -> Dentro del directorio "handlers", se ha procedido a crear dos nuevas clases: 
+UpdateSystemPerformanceResourceHandler y UpdateTelemetryResourceHandler, los cuales permitirán que el CDA envie 
+peticiones PUT para SensorData y SystemPerformanceData al GDA. Dentro de las clases creadas, se ha añadido una 
+estructura similar a la plantilla proporcionada por el módulo "GenericCoapResourceHandler", que cuenta con un 
+constructor y un conjunto de métodos públicos: setDataMessageListener, handlePUT, handleGET, handleDELETE y handlePOST, 
+los cuales se han sobreescrito.
+
+En esta sección, se ha modificado el módulo de tests denominado "CoapClientToServerConnectorTest" añadiendo un pequeño 
+test de prueba para chequear la implementación del método PUT. 
+
+PIOT-GDA-08-003 -> Se ha procedido a crear una nueva clase dentro del directorio "handlers" denominada 
+GetActuatorCommandResourceHandler, la cual permitirá que el GDA de forma eventual pueda notificar al CDA de comandos de 
+actuación a través de la especificación CoAP OBSERVE. Para la implementación, se ha realizado de una forma similar a la 
+estructura que presentan las clases creadas en el PIOT-GDA-08-002, con la diferencia que se ha implementado un nuevo 
+método denominado "onActuatorDataUpdate" que simplemente devuelve true o false en función de si se ha producido un 
+cambio o actualización en el actuador y sólo se ha implementado el método "handleGET", ya que es el único necesario para
+el handler de este recurso.
+
+En esta sección, no se ha ejecutado ningún test.
+
+PIOT-GDA-08-004 -> Se ha procedido a actualizar los módulos "CoapServerGateway" (para incorporar el soporte de la 
+adición de instancias de recursos creados de forma interna o bien recursos creados de forma externa que se proceden a 
+pasar al servidor) y "DeviceDataManager" (para dar soporte al registro de almenos una referencia de un 
+IActuatorDataListener).
+
+Para el primer propósito, se ha modificado el método "addResource", el cual a su vez llama a otro método denominado 
+"createAndAddResourceChain" que permite crear cada recurso con la estructura apropiada que se requiere. Por último, se 
+ha modificado el método "initServer" para crear la instancia del servidor CoAP si no está creado, en que si no hay 
+recursos disponibles utiliza unos recursos por defecto del tipo GetActuatorCommandResourceHandler, 
+UpdateTelemetryResourceHandler y UpdateSystemPerformanceResourceHandler.
+
+Para el segundo propósito, se ha modificado ligeramente el método "setActuatorDataListener" del DeviceDataManager para 
+crear un escuchador del tipo IActuatorDataListener. Por otro lado, se ha añadido una lógica parcial (ya que se 
+completará o será necesaria en laboratorios posteriores) del método privado "handleIncomingDataAnalysis", el cual 
+debería ser llamado siempre que haya un ActuatorData en camino.
+
+En esta sección, se ha procedido a ejecutar el test de integración "CoapServerGatewayTest" y también se ha procedido a 
+utilizar el Californium Tools CLI client para testear las implementaciones GET y POST llevadas a cabo sobre los 
+siguientes recursos: PIOT/ConstrainedDevice/SensorMsg y PIOT/ConstrainedDevice/SystemPerfMsg. En la foto de a 
+continuación, se puede observar la salida por terminal con el Californium Tools CLI client, que resulta bastante similar
+a la esperada dadas las notas del Notion proporcionado:
+
+- Output presentado al ejecutar por terminal el Californium Tools CLI client: 
+
 ### Code Repository and Branch
 
 NOTE: Be sure to include the branch.
 
-URL: 
+URL: https://github.com/NicolGallo/PIC_Java_Components/tree/labmodule8 
 
 
 ### Unit Tests Executed
@@ -36,8 +102,8 @@ some exceptions (such as your cloud connectivity tests). In such cases, they'll 
 your code to ensure it's correct. As for the tests you execute, you only need to list each
 test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
 
-- 
-- 
+- CoapServerGatewayTest
+- CoapClientToServerConnectorTest
 - 
 
 EOF.
