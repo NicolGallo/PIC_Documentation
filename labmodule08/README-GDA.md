@@ -10,6 +10,13 @@ NOTE: Include two full paragraphs describing your implementation approach by ans
 
 What does your implementation do? 
 
+La implementación establece un servidor CoAP funcional utilizando Californium, integrando su control desde 
+DeviceDataManager. Se definen e implementan recursos específicos para recibir datos de sensores (PUT) y enviar comandos 
+de actuación mediante observación (GET con CoAP Observe). La lógica del servidor, incluyendo inicialización dinámica, 
+gestión de recursos y escucha de datos, se organiza modularmente. Se desarrollan handlers con métodos sobrescritos para
+cada tipo de mensaje y se testean mediante integración y herramientas CLI, validando la comunicación entre CDA y GDA 
+sobre CoAP.
+
 How does your implementation work?
 
 A continuación, se detalla el procedimiento seguido para implementar los requisitos establecidos en el Lab Module 08:

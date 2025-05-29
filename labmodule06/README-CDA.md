@@ -10,6 +10,13 @@ NOTE: Include two full paragraphs describing your implementation approach by ans
 
 What does your implementation do? 
 
+Se ha desarrollado e integrado un módulo de comunicación MQTT para un dispositivo con recursos limitados. 
+Comienza configurando el MqttClientConnector con los ajustes básicos del cliente y la lógica de conexión, incluyendo 
+callbacks para manejar la conexión, desconexión y recepción de mensajes. Se implementan las funciones clave de 
+publicación y suscripción con validación y registros informativos. Por último, el módulo se integra en el 
+DeviceDataManager, permitiendo la gestión completa del ciclo de vida del cliente MQTT, verificada mediante pruebas de 
+integración.
+
 How does your implementation work?
 
 A continuación, se detalla el procedimiento seguido para implementar los requisitos establecidos en el Lab Module 06:
@@ -20,8 +27,6 @@ PIOT-CFG-06-001 -> Se ha procedido a instalar el broker Mosquitto MQTT y las her
 ![img.png](Testing_Mosquitto_Installation_1.png)
 ![img.png](Testing_Mosquitto_Installation_2.png)
 ![img.png](Testing_Mosquitto_Installation.png)
-
-"Falta incluir la demo de Wireshark"
 
 PIOT-CDA-06-000 -> Se ha procedido a crear una nueva rama labmodule06 para empezar la elaboración de la práctica 06.
 

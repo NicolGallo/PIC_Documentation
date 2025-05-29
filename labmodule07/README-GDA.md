@@ -10,6 +10,12 @@ NOTE: Include two full paragraphs describing your implementation approach by ans
 
 What does your implementation do? 
 
+Se ha configurado e integrado un cliente MQTT en el sistema GDA, permitiendo la conexión, desconexión, 
+publicación y suscripción a tópicos. Se define la lógica en el módulo MqttClientConnector siguiendo la interfaz 
+IPubSubClient, incluyendo validaciones y logs informativos. También se preparan los métodos callback de 
+MqttCallbackExtended, aunque su lógica se implementará en futuras prácticas. Finalmente, se integra el cliente en el 
+DeviceDataManager y se crean tests específicos para validar la gestión de paquetes MQTT.
+
 How does your implementation work?
 
 A continuación, se detalla el procedimiento seguido para implementar los requisitos establecidos en el Lab Module 07:
