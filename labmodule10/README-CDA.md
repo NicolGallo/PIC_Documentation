@@ -10,9 +10,37 @@ NOTE: Include two full paragraphs describing your implementation approach by ans
 
 What does your implementation do? 
 
+Se establece una conexión segura mediante TLS con el broker MQTT, integrando certificados y claves siguiendo las 
+instrucciones proporcionadas para su obtención. Se ha modificado el módulo MqttClientConnector para detectar si la 
+encriptación está habilitada, ajustar el puerto y cargar los certificados. Además, se ha implementado la recepción y 
+gestión de comandos de actuador a través de callbacks, y se ha centralizado el envío de datos hacia el GDA mediante el 
+método _handleUpstreamTransmission.
+
 How does your implementation work?
 
 A continuación, se detalla el procedimiento seguido para implementar los requisitos establecidos en el Lab Module 10:
+
+PIOT-CFG-10-001 -> Se ha procedido a realizar el intento de poder efectuar la cnoexión segura mediante TLS, obteniendo 
+los certificados y claves correspondientes siguiendo paso a paso las instrucciones de las notas dadas por el profesor. 
+A continuación, se proporcionan algunas capturas para confirmar que el objetivo de configurar la conexión TLS modificando
+los archivos de configuración de Mosquitto resultaron satisfactorios:
+
+1) Obtención de los certificados y claves para la conexión segura mediante encriptación TLS con un broker local MQTT
+usando Mosquitto:
+
+![img.png](certs_keys_TLS_connection.png)
+
+2) Configuración de los archivos a nivel de sistema de Mosquitto "tols.conf" y mosquitto.conf para poder efectuar conexión 
+al puerto sin seguridad 1883 o bien que realice la conexión al puerto seguro 8883 en caso de haber soporte TLS:
+
+![img.png](tls_conf_file.png)
+![img.png](mosquitto_conf_file.png)
+
+3) Realización de la prueba por terminal para publicar el topic "hello" y suscribirse al mismo tópico mediante la 
+configuración TLS efectuada previamente:
+
+![img.png](test_hello_tls.png)
+
 
 PIOT-CDA-10-000 -> Se ha procedido a crear una nueva rama labmodule10 para empezar la elaboración de la práctica 10.
 
@@ -69,9 +97,9 @@ NOTE: The instructor will execute your unit tests. You only need to list each te
 (e.g. ConfigUtilTest, DataUtilTest, etc). Be sure to include all previous tests, too,
 since you need to ensure you haven't introduced regressions.
 
-- 
-- 
-- 
+- Todos los tests unitarios de la parte1.
+- Todos los tests unitarios de la parte2.
+- Todos los tests unitarios de la parte3.
 
 ### Integration Tests Executed
 
@@ -83,5 +111,8 @@ test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
 - DeviceDataManagerIntegrationTest
 - MqttClientConnectorTest
 - testActuatorDataCallbackTest
+- Todos los tests de integración de la parte1.
+- Todos los tests de integración de la parte2.
+- Todos los tests de integración de la parte3.
 
 EOF.

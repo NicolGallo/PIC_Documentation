@@ -45,7 +45,7 @@ se han implementado dos métodos nuevos: "_handleGetRequest" y "_onGetResponse" 
 de la petición GET y el segundo para funcionar como callback de la encapsulación de las respuestas de las peticiones 
 GET). Seguidamente, se ha implementado una modificación en el método "sendDiscoveryRequest", el cual emitirá una 
 petición de descubrimiento al servidor, proporcionando la lista de recursos que están registrados en el servidor.
-"
+
 En esta sección, se ha ejecutado el test de integración "CoapClientConnectorTest", en que se ha skippeado todos menos 
 los tests "testConnectAndDiscover", "testGetActuatorCommandCon", y "testGetActuatorCommandNon".
 
@@ -84,16 +84,15 @@ NOTE: Be sure to include the branch.
 URL: https://github.com/NicolGallo/PIC_Python_Components/tree/labmodule9
 
 
-
 ### Unit Tests Executed
 
 NOTE: The instructor will execute your unit tests. You only need to list each test case below
 (e.g. ConfigUtilTest, DataUtilTest, etc). Be sure to include all previous tests, too,
 since you need to ensure you haven't introduced regressions.
 
-- 
-- 
-- 
+- Todos los tests unitarios de la parte1.
+- Todos los tests unitarios de la parte2.
+
 
 ### Integration Tests Executed
 
@@ -102,8 +101,10 @@ some exceptions (such as your cloud connectivity tests). In such cases, they'll 
 your code to ensure it's correct. As for the tests you execute, you only need to list each
 test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
 
-- 
-- 
+- Todos los tests de integración de la parte1.
+- Todos los tests de integración de la parte2.
 - CoapClientConnectorTest
+- MqttClientConnectorTest
+- MqttClientControlPacketTest
 
 EOF.

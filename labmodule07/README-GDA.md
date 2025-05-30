@@ -86,9 +86,8 @@ NOTE: The instructor will execute your unit tests. You only need to list each te
 (e.g. ConfigUtilTest, DataUtilTest, etc). Be sure to include all previous tests, too,
 since you need to ensure you haven't introduced regressions.
 
-- 
-- 
-- 
+- Todos los tests unitarios de la parte1.
+- Todos los tests unitarios de la parte2.
 
 ### Integration Tests Executed
 
@@ -97,6 +96,8 @@ some exceptions (such as your cloud connectivity tests). In such cases, they'll 
 your code to ensure it's correct. As for the tests you execute, you only need to list each
 test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
 
+- Todos los tests de integración de la parte1.
+- Todos los tests de integración de la parte2.
 - MqttClientConnectorTest
 - MqttClientControlPacketTest
 

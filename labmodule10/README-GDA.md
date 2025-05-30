@@ -57,12 +57,6 @@ En esta sección, se ha ejecutado un nuevo módulo de test creado denominado "De
 cual permite comprobar el buen funcionamiento del DeviceDataManager al recibir mensajes de tipo SensorData que provienen
 de lecturas de humedad del CDA (lo cual se puede comprobar emulando los cambios de lectura mediante el SenseHAT).
 
-NOTA: Se ha intentado realizar los requisitos para establecer conexiones seguras mediante TLS (se han creado los certificados
-correspondientes como detallan los PIOT-INT pero, no se ha podido ir más allá para efectuar algunas de las pruebas que se solicitan)
-Para pasos a futuros que quedarían pendientes y estaría interesante abordar sería incorporar el estudio de este requisito
-para realizar comparaciones entre conexiones seguras o no seguras (utilizando distintos puertos para cada conexión, modificando
-el archivo .conf de mosquitto para establecer las condiciones necesarias para la ejecución de la conexión con el broker, etc).
-
 
 ### Code Repository and Branch
 
@@ -78,9 +72,9 @@ NOTE: The instructor will execute your unit tests. You only need to list each te
 (e.g. ConfigUtilTest, DataUtilTest, etc). Be sure to include all previous tests, too,
 since you need to ensure you haven't introduced regressions.
 
-- 
-- 
-- 
+- Todos los tests unitarios de la parte1.
+- Todos los tests unitarios de la parte2.
+- Todos los tests unitarios de la parte3.
 
 ### Integration Tests Executed
 
@@ -89,8 +83,10 @@ some exceptions (such as your cloud connectivity tests). In such cases, they'll 
 your code to ensure it's correct. As for the tests you execute, you only need to list each
 test case below (e.g. SensorSimAdapterManagerTest, DeviceDataManagerTest, etc.)
 
+- Todos los tests de integración de la parte1.
+- Todos los tests de integración de la parte2.
+- Todos los tests de integración de la parte3.
 - MqttClientConnectorTest
 - DeviceDataManagerSimpleCdaActuationTest
-- 
 
 EOF.
